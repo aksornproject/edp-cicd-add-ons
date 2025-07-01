@@ -31,31 +31,31 @@ spec:
         - ArgoCD-krci-users
   destinations:
     # ensure we can deploy to ns with tenant prefix
-    - namespace: 'krci-*'
-    # allow to deploy to specific server (local in our case)
+    - namespace: "krci-*"
+      # allow to deploy to specific server (local in our case)
       server: https://kubernetes.default.svc
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
-  - group: ''
-    kind: Namespace
+    - group: ""
+      kind: Namespace
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   namespaceResourceBlacklist:
-  - group: ''
-    kind: ResourceQuota
-  - group: ''
-    kind: LimitRange
-  - group: ''
-    kind: NetworkPolicy
+    - group: ""
+      kind: ResourceQuota
+    - group: ""
+      kind: LimitRange
+    - group: ""
+      kind: NetworkPolicy
   # we are ok to create any resources inside namespace
   namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   # enable access only for specific git server. The example below 'krci' - it is namespace where krci deployed
   sourceRepos:
     # Specifies the URL of the Git repository from which the code will be pulled for deployment.
     # It is provided in the SSH format, indicating the username (`ci`), hostname (`git.example.com`),
     # and port (`22`) of the Git server, along with the repository path (`cluster-add-ons`).
-    - ssh://git@github.com:22/kuberocketci/*
+    - ssh://git@github.com/aksornproject/*
   # enable capability to deploy objects from namespaces
   sourceNamespaces:
     - krci
