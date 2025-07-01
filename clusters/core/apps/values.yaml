@@ -73,8 +73,8 @@ dependency-track:
   namespace: dependency-track
 
 external-secrets:
-  createNamespace: false
-  enable: false
+  createNamespace: true
+  enable: true
   namespace: external-secrets
 
 # fluent-bit can be installed as a single component
